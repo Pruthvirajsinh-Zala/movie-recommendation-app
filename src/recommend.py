@@ -32,8 +32,8 @@ def recommend_movie(movie_name, top_n=5):
     movie_indices = [i[0] for i in sim_scores]
     logging.info("Top %d recommendations ready.",top_n)
     # create DataFrame with clean serial numbers starting from 1
-    result_df = df[['title'.iloc[movie_indices].reset_index(drop=True)]]
-    result_df.index = result_df.index + 1 # start from 1 instead of 0
+    result_df = df[['title']].iloc[movie_indices].reset_index(drop=True)
+    result_df.index = result_df.index + 1  # Start from 1 instead of 0
     result_df.index.name = "S.No."
 
     return result_df
