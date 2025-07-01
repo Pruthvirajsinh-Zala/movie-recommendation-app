@@ -6,7 +6,7 @@ logging.basicConfig(
     level=logging.INFO,
     format = '[%(asctime)s] %(levelname)s - %(message)s',
     handlers = [
-        logging.FileHandler("reccomend.log",encodeing='utf-8'),
+        logging.FileHandler("reccomend.log",encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
