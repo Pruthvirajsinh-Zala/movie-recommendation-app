@@ -2,9 +2,11 @@ import json
 import streamlit as st
 from recommend import df, recommend_movie
 from omdb_utils import get_movie_details
+import preprocess
 
 config = json.load(open('config.json'))
 
+exec(open('preprocess.py').read())
 #OMDB api key
 OMDB_API_KEY = config['OMDB_API_KEY']
 
