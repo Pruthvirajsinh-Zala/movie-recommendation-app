@@ -72,7 +72,33 @@ logging.info("✅ Cosine similarity matrix generated.")
 # Save everything
 joblib.dump(df, 'df_cleaned.pkl')
 joblib.dump(tfidf_matrix, 'tfidf_matrix.pkl')
-joblib.dump(cosine_sim, 'cosine_sim.pkl')
+joblib.dump(cosine_sim, 'cosine_sim.pkl',compress=9)
+import gzip
+
+def compress_file_into_two_parts(input_file_path, output_part1_path, output_part2_path):
+    with open(input_file_path, 'rb') as f_in:
+        data = f_in.read()
+
+    mid_point = len(data) // 2
+    part1_data = data[:mid_point]
+    part2_data = data[mid_point:]
+
+    compressed_part1 = gzip.compress(part1_data)
+    compressed_part2 = gzip.compress(part2_data)
+
+    with open(output_part1_path, 'wb') as f_out1:
+        f_out1.write(compressed_part1)
+
+    with open(output_part2_path, 'wb') as f_out2:
+        f_out2.write(compressed_part2)
+
+compress_file_into_two_parts('cosine_sim.pkl', 'cosine_sim_part1.pkl.gz', 'cosine_sim_part2.pkl.gz')
+logging.info("✅ Cosine similarity matrix saved to cosine_sim.zip")
+
+    # Example usage:
+    # compress_to_zip('my_file.txt', 'my_archive.zip')
+    # compress_to_zip('my_folder', 'my_folder_archive.zip')
 logging.info("💾 Data saved to disk.")
 
 logging.info("✅ Preprocessing complete.")
+

@@ -14,6 +14,23 @@ logging.basicConfig(
 logging.info("Loading Data...")
 try:
     df = joblib.load('src/df_cleaned.pkl')
+    import gzip
+    def decompress_two_parts_to_file(input_part1_path, input_part2_path, output_file_path):
+        with open(input_part1_path, 'rb') as f_in1:
+            compressed_part1 = f_in1.read()
+
+        with open(input_part2_path, 'rb') as f_in2:
+            compressed_part2 = f_in2.read()
+
+        decompressed_part1 = gzip.decompress(compressed_part1)
+        decompressed_part2 = gzip.decompress(compressed_part2)
+
+        combined_data = decompressed_part1 + decompressed_part2
+
+        with open(output_file_path, 'wb') as f_out:
+            f_out.write(combined_data)
+    decompress_two_parts_to_file('cosine_sim_part1.pkl.gz', 'cosine_sim_part2.pkl.gz', 'cosine_sim.pkl')
+    logging.info("Decompressed cosine similarity matrix.")
     cosine_sim = joblib.load('cosine_sim.pkl')
     logging.info("Data loaded  successfully.")
 except Exception as e:
