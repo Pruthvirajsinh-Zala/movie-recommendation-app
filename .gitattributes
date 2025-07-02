@@ -2,3 +2,4 @@
 * text=auto
 .gitignore
 config.json
+.gz filter=lfs diff=lfs merge=lfs -text
