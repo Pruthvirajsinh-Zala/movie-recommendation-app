@@ -23,8 +23,8 @@ To find the top 5 movies most similar to the one selected by user by using their
 📸 Visualizations
 
 # 1. Most Common Words in Movies   
-![Common Words](Visualization/.most common words in movie content.png)
+!(Visualization\most common words in movie content.png)
 
 # 2. Website  
-![Website](Visualization/website.png)
+![Website](Visualization\website.png)
 
