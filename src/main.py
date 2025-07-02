@@ -6,7 +6,7 @@ import preprocess
 
 config = json.load(open('src/config.json'))
 
-exec(open('preprocess.py').read())
+exec(open('src/preprocess.py').read())
 #OMDB api key
 OMDB_API_KEY = config['OMDB_API_KEY']
 
