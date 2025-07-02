@@ -1,5 +1,6 @@
 import joblib
 import logging
+import streamlit as st
 
 #setup logging
 logging.basicConfig(
@@ -36,7 +37,7 @@ try:
 except Exception as e:
     logging.error("Failed to load requested files : %s", str(e))
     raise e
-
+@st.cache_data
 def recommend_movie(movie_name, top_n=5):
     logging.info("Reccomending movies for : '%s'", movie_name)
     idx = df[df['title'].str.lower() == movie_name.lower()].index
