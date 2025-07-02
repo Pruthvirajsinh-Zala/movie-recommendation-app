@@ -4,7 +4,7 @@ from recommend import df, recommend_movie
 from omdb_utils import get_movie_details
 import preprocess
 
-config = json.load(open('config.json'))
+config = json.load(open('src/config.json'))
 
 exec(open('preprocess.py').read())
 #OMDB api key
