@@ -8,7 +8,7 @@ config = json.load(open('src/config.json'))
 
 exec(open('src/preprocess.py').read())
 #OMDB api key
-OMDB_API_KEY = config['OMDB_API_KEY']
+OMDB_API_KEY = st.secrets["OMDB_API_KEY"]
 
 st.set_page_config(
     page_title='Movie Recommender',
