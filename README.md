@@ -27,6 +27,7 @@ To find the top 5 movies most similar to the one selected by user by using their
 ![common](Visualizations/common_words.png)
 
 
+
 # 2. Website  
 ![Website](Visualizations/website.png)
 
