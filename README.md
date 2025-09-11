@@ -3,7 +3,6 @@ Its a Movie Recommendation build on an ML model to recommend user a movie based 
 
 ---
 
-
 🛠 Tools Used
 
 - Python
